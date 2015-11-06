@@ -1,3 +1,5 @@
+var mydb = require('./postgres.js')
+
 var yelp = require("yelp").createClient({
   consumer_key: "eZS4YZtBkwGBT1qo_6sugQ",
   consumer_secret: "mS47iXf3aj-YlFEdYDPILaekjq8",
@@ -11,7 +13,9 @@ var yelpController = {
   getData: function(req, res, next) {
     var yelpData = [];
     // See http://www.yelp.com/developers/documentation/v2/search_api
+
     yelp.search({term: "Restaurant",limit: 20,offset: 20, sort:2, location: "Playa Vista, ca", radius_filter: 20000}, function(error, data) {
+
       if(error) console.log(error);
 
       data.businesses.forEach(function(item){
@@ -28,7 +32,9 @@ var yelpController = {
         yelpData.push(obj);
         console.log(obj);
       });
-    //  mydb(yelpData);
+
+      mydb.yelp(yelpData);
+
       res.send(yelpData);
   });
 
