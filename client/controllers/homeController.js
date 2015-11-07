@@ -1,19 +1,31 @@
 var app = angular
-  .module('TrueReview.HomeController',['ui.router'])
-  .controller('HomeController', ['$scope', HomeController])
+  .module('TrueFoodReview.HomeController',['ui.router'])
+  .controller('HomeController', ['$scope', HomeController]);
 
 
 function HomeController($scope) {
-  console.log('hello');
+
   $scope.loadMap = function(){
-   console.log('hello');  
+
   	// map = new google.maps.Map(document.getElementById('map'), {
-   //  	center: {lat: -34.397, lng: 150.644},
-   //  	zoom: 8
+    // 	center: {lat: -34.397, lng: 150.644},
+    // 	zoom: 8
   	// });
 
+    var myLatLng = {lat: 33.97914, lng: -118.41480705731};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
 
 
-  }
+
+  };
 }
-

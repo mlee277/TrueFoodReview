@@ -16,6 +16,7 @@
   "dependencies": {
     "angular": "~1.4.7",
     "angular-mocks": "~1.4.2",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "ngmap": "~1.13.15"
   }
 }
